@@ -20,7 +20,7 @@ CU Libraries Core Tech & Apps!
 
 .. toctree::
    :maxdepth: 3
-   :caption: Contents:
+   :caption: Products:
    
    products/cu-scholar/institutional-repository
 
