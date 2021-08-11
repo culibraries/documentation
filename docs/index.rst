@@ -5,6 +5,8 @@
 
 CU Libraries Core Tech & Apps!
 ==========================================================
+
+
 .. toctree::
    :maxdepth: 1
    :caption: Frequently Asked Question
@@ -12,15 +14,15 @@ CU Libraries Core Tech & Apps!
    faq
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: Infrasturcture and Retention Policies 
    
    policies/infrastructure/infrastructure
    policies/infrastructure/backup
 
 .. toctree::
-   :maxdepth: 3
-   :caption: Products:
+   :maxdepth: 2
+   :caption: Products
    
    products/cu-scholar/institutional-repository
 

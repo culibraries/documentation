@@ -1,5 +1,4 @@
-CU Scholar
-=================
+# CU Scholar
 
 This is a test
 
