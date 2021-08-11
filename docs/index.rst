@@ -6,6 +6,8 @@
 CU Libraries Core Tech & Apps!
 ==========================================================
 
+The folling documentation is provided for the University of Colorado LibrariesCore Tech and Apps(CTA). The documentation will provide an overview of Infrastructure, Backup and Restoration policies,and CTA managed products.
+
 
 .. toctree::
    :maxdepth: 1
