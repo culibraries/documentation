@@ -10,11 +10,13 @@ CU Libraries Core Tech & Apps!
    :caption: Frequently Asked Question
 
    faq
+
 .. toctree::
    :maxdepth: 3
-   :caption: Core Tech and Apps Policies
-
-   policies/backup/backup
+   :caption: Infrasturcture and Retention Policies 
+   
+   policies/infrastructure/infrastructure
+   policies/infrastructure/backup
 
 .. toctree::
    :maxdepth: 3
