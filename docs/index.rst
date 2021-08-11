@@ -3,13 +3,23 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Core Tech & Apps Documentation!
+CU Libraries Core Tech & Apps!
 ==========================================================
+.. toctree::
+   :maxdepth: 1
+   :caption: Frequently Asked Question
+
+   faq
+.. toctree::
+   :maxdepth: 3
+   :caption: Core Tech and Apps Policies
+
+   policies/backup/backup
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
-
+   
    products/cu-scholar/institutional-repository
 
 
