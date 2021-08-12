@@ -1,4 +1,4 @@
-# Self-checkout maintenance
+# Self-checkout
 
 Procedure to update Sierra self-checkout machines
 

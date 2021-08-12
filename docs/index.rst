@@ -28,6 +28,11 @@ Table of Contents
 .. toctree::
    :maxdepth: 2
    :caption: Products
-   
+
    products/cu-scholar/institutional-repository
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Maintenance Tasks
+   
    products/selfcheck/autostart
