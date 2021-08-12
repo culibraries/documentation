@@ -32,7 +32,4 @@ CU Scholar data files are stored within the Flexibile Extensible Digital Object 
 1. All files uploaded undergoes virus scan.(CTS 4)
 2. Fixity checksum are performed on a regular intervals. MONTHLY/Quaterly/Year(???) timeframe.(CTS 3)
 
-### Horizontal Scalable
-
-Kubernetes provides container orchestration with the ability to scale horizontally. CU Scholar has the ability to adjust capacity based on demand.  
 

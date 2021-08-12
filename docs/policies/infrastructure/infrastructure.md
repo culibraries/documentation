@@ -8,8 +8,8 @@ CU Libraries infrastructure is leveraging AWS Cloud Services.
 
 Production products are deployed in containers(micro-service) within a [kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) cluster. Rancher is used for cluster management and deployments.
 
-1. Highly available 
-2. Horizontal Scalable: Products have the ability to scale up or down based on demand.
+        1. Highly available 
+        2. Horizontal Scalable: Products have the ability to scale up or down based on demand.
 
 ### AWS EKS
 
