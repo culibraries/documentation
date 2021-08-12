@@ -30,3 +30,4 @@ Table of Contents
    :caption: Products
    
    products/cu-scholar/institutional-repository
+   products/selfcheck
