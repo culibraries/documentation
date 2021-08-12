@@ -3,10 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-CU Libraries Core Tech & Apps!
+CU Libraries Documentation!
 ==========================================================
 
-Documentation covering Core Tech and Apps(CTA) applications and policies.
+Documentation covering Core Tech and Apps(CTA) Products and Policies.
 
 Table of Contents
 ===========================================================
