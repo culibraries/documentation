@@ -21,3 +21,6 @@ The production clusters are using [AWS EKS](https://aws.amazon.com/eks) infrastr
         the EKS console provides observability of your Kubernetes clusters so you can identify 
         and resolve issues faster.
 
+#### EKS Worker Nodes
+
+The EKS worker nodes are rotated on an annual basis. EC2 instance provides on-demand security patches 
