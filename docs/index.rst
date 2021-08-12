@@ -6,7 +6,7 @@
 CU Libraries Documentation!
 ==========================================================
 
-Documentation covering Core Tech and Apps(CTA) Products and Policies.
+Documentation covering Core Tech & Apps(CTA) Products and Policies.
 
 Table of Contents
 ===========================================================
