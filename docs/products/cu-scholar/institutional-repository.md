@@ -1,6 +1,6 @@
 # CU Scholar
 
-CU Scholar is the University of Colorado Libraries Institutional Repository. The repository is using the [Samvera](https://samvera.org/samvera-open-source-repository-framework) an open source repository framework. 
+CU Scholar is the University of Colorado Libraries Institutional Repository. The repository is using [Samvera](https://samvera.org/samvera-open-source-repository-framework) an open source repository framework. 
 
 ## Samvera Technical Stack
 
