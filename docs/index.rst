@@ -22,7 +22,7 @@ Table of Contents
    :caption: Infrasturcture and Policies 
    
    policies/infrastructure/infrastructure
-   policies/version-control
+   policies/version-control/version-control
    policies/backup
 
 .. toctree::
@@ -30,3 +30,4 @@ Table of Contents
    :caption: Products
    
    products/cu-scholar/institutional-repository
+   products/selfcheck/autostart
