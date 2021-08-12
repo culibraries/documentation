@@ -20,7 +20,6 @@ Table of Contents
 .. toctree::
    :maxdepth: 2
    :caption: Infrasturcture and Policies 
-   
    policies/infrastructure/infrastructure
    policies/version-control/version-control
    policies/backup
@@ -28,6 +27,5 @@ Table of Contents
 .. toctree::
    :maxdepth: 2
    :caption: Products
-   
    products/cu-scholar/institutional-repository
    products/selfcheck/autostart
