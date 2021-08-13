@@ -22,4 +22,4 @@ Git Flow model for branch management.
 
 ### Pull Request with Code Review 
 
-A pull request(PRs) is required to merge code into the `main` branch. All PRs to the `main` branch require a code review.
+A Pull Request(PR) is required to merge code into the `main` branch. All PRs to the `main` branch require a code review.
