@@ -22,6 +22,7 @@ Table of Contents
    :caption: Infrasturcture and Policies 
 
    policies/infrastructure/infrastructure
+   policies/infrastructure/aws
    policies/version-control/version-control
    policies/backup
 
