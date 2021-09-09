@@ -6,7 +6,7 @@ CU Libraries uses git as its version control system. All repositories are stored
 
 Git Flow model for branch management.
 
-![Git Flow](git-model.png)
+![Git Flow](assets/git-model.png)
 
 ### Main Branches
 

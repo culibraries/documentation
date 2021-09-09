@@ -4,11 +4,11 @@ CU Scholar is the University of Colorado Libraries Institutional Repository. The
 
 ## Samvera Technical Stack
 
-![Technical Stack](Samvera-Components-Diagram.png)
+![Technical Stack](assets/Samvera-Components-Diagram.png)
 
 ## Infrastructure
 
-CU Scholar utilizes the CU Library [infrastructure](/policies/infrastructure/infrastructure). 
+CU Scholar utilizes the CU Library [infrastructure](/pages/infrastructure). 
 
 ## CU Scholar Components
 
@@ -21,11 +21,11 @@ CU Scholar utilizes the CU Library [infrastructure](/policies/infrastructure/inf
 
 ### Metadata
 
-CU Scholar metadata is stored within the Flexibile Extensible Digital Object Repository Architecture(fedora). The metadata utilizes the Mysql AWS RDS database. Fedora logs all changes and stores metadata changes within the database. [Backup Policy](/policies/backup) (CTS 4)
+CU Scholar metadata is stored within the Flexibile Extensible Digital Object Repository Architecture(fedora). The metadata utilizes the Mysql AWS RDS database. Fedora logs all changes and stores metadata changes within the database. [Backup Policy](/pages/backup) (CTS 4)
 
 ### Data Files
 
-CU Scholar data files are stored within the Flexibile Extensible Digital Object Repository Architecture(fedora). The production data files are stored within AWS S3 object storage service. [Backup Policy](/policies/backup) (CTS 3 (offsite copy to PL implementation phase))
+CU Scholar data files are stored within the Flexibile Extensible Digital Object Repository Architecture(fedora). The production data files are stored within AWS S3 object storage service. [Backup Policy](/pages/backup) (CTS 3 (offsite copy to PL implementation phase))
 
 ### Data File Checks
 
