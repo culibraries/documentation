@@ -2,9 +2,8 @@
 
 ReadtheDocs is CU Boulder Libraries Core Tech & Apps approved method for documentation. 
 
-[Github Markdown Guides](https://guides.github.com/features/mastering-markdown/)
-
-[Read the Docs Documentation](https://docs.readthedocs.io/en/stable/index.html)
+1. [Github Markdown Guides](https://guides.github.com/features/mastering-markdown/)
+1. [Read the Docs Documentation](https://docs.readthedocs.io/en/stable/index.html)
 
 ## Requirements
 
@@ -20,7 +19,7 @@ ReadtheDocs is CU Boulder Libraries Core Tech & Apps approved method for documen
 
         $ git clone https://github.com/culibraries/documentation.git
 
-2. Create Virtual Environment
+1. Create Virtual Environment
 
 
         $ cd documentation
@@ -31,26 +30,26 @@ ReadtheDocs is CU Boulder Libraries Core Tech & Apps approved method for documen
 
         $ pip install -r requirements.txt
 
-3. View Documentation
+1. View Documentation
 
         $ cd docs
         $ make html
 
-4. New Terminal - Web server
+1. New Terminal - Web server
 
         $ . venv/bin/activate
         $ cd docs/_build/html
         $ python -m http.server
         Serving HTTP on :: port 8000 (http://[::]:8000/) ...
 
-5. Open Browser [http://localhost:8000](http://localhost:8000)
+1. Open Browser [http://localhost:8000](http://localhost:8000)
 
 ## Add new Documentation
 
 1. git checkout -b new_docs
-2. Edit add documentation (Markdown)
-3. make html 
-4. add new pages to toctree (index.rst)
+1. Edit add documentation (Markdown)
+1. make html 
+1. add new pages to toctree (index.rst)
 
 
 ## Pull Request main <<--- feature branch
@@ -60,5 +59,5 @@ CU Boulder Libraries' regular activity is to create a PR from the Release branch
 ## View Build Process on ReadtheDocs
 
 1. Merge to main required before ReadtheDocs build process will start.
-2. [View builds](https://readthedocs.org/projects/cu-boulder-libraries/builds/)
-3. After successful build ==>> [https://cu-boulder-libraries.readthedocs.io/en/latest/](https://cu-boulder-libraries.readthedocs.io/en/latest/)
+1. [View builds](https://readthedocs.org/projects/cu-boulder-libraries/builds/)
+1. After successful build ==>> [https://cu-boulder-libraries.readthedocs.io/en/latest/](https://cu-boulder-libraries.readthedocs.io/en/latest/)
