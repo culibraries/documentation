@@ -37,3 +37,9 @@ Table of Contents
    :caption: Maintenance Tasks
    
    products/selfcheck/autostart
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Documentation
+   
+   products/documentation/readthedocs
