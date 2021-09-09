@@ -9,7 +9,7 @@ ReadtheDocs is CU Boulder Libraries Core Tech & Apps approved method for documen
 
 1. Python 3.3 or greater
 
-## Installation (Mac OS)
+## Installation
 
 1. Clone Repository 
 
