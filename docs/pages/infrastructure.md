@@ -2,7 +2,7 @@
 
 CU Libraries infrastructure is leveraging AWS Cloud Services. 
 
-![Default Infrasturcture](./assets/infrastructure.jpg)
+![Default Infrasturcture](assets/infrastructure.jpg)
 
 ## Kubernetes
 
