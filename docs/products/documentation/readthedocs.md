@@ -9,55 +9,51 @@ ReadtheDocs is CU Boulder Libraries Core Tech & Apps approved method for documen
 
 1. Python 3.3 or greater
 
-## Installation (Mac OS)
+## Installation
 
 1. Clone Repository 
+    ```sh
+    git clone git@github.com:culibraries/documentation.git
 
-        $ git clone git@github.com:culibraries/documentation.git
+    or
 
-        or
-
-        $ git clone https://github.com/culibraries/documentation.git
-
+    git clone https://github.com/culibraries/documentation.git
+    ```
 1. Create Virtual Environment
-
-
-        $ cd documentation
-
-        $ python3 -m venv venv
-
-        $ . venv/bin/activate
-
-        $ pip install -r requirements.txt
-
-1. View Documentation
-
-        $ cd docs
-        $ make html
-
+    ```sh
+    cd documentation
+    python3 -m venv venv
+    . venv/bin/activate
+    pip install -r requirements.txt
+    ```
+1. Create HTML
+    ```sh
+    cd docs
+    make html
+    ```
 1. New Terminal - Web server
-
-        $ . venv/bin/activate
-        $ cd docs/_build/html
-        $ python -m http.server
-        Serving HTTP on :: port 8000 (http://[::]:8000/) ...
-
+    ```sh
+    . venv/bin/activate
+    cd docs/_build/html
+    python -m http.server
+    Serving HTTP on :: port 8000 (http://[::]:8000/) ...
+    ```
 1. Open Browser [http://localhost:8000](http://localhost:8000)
 
-## Add new Documentation
+## Add new documentation
 
 1. git checkout -b new_docs
-1. Edit add documentation (Markdown)
+1. Edit/Add documentation (Markdown)
 1. make html 
 1. add new pages to toctree (index.rst)
 
 
-## Pull Request main <<--- feature branch
+## Pull Request to main branch
 
-CU Boulder Libraries' regular activity is to create a PR from the Release branch with a code review. Our Documentation repository is slightly different. Perform a PR from the feature branch to the main branch. Add a code reviewer before merge to main.
+CU Boulder Libraries' regular activity is to create a PR from the `release` branch with a code review. The `documentation` repository is slightly different. Perform a PR from the feature branch to the `main` branch. Add a code review before merge to main.
 
 ## View Build Process on ReadtheDocs
 
 1. Merge to main required before ReadtheDocs build process will start.
-1. [View builds](https://readthedocs.org/projects/cu-boulder-libraries/builds/)
-1. After successful build ==>> [https://cu-boulder-libraries.readthedocs.io/en/latest/](https://cu-boulder-libraries.readthedocs.io/en/latest/)
+1. [ReadtheDocs View builds](https://readthedocs.org/projects/cu-boulder-libraries/builds/)
+1. After successful build: [https://cu-boulder-libraries.readthedocs.io/en/latest/](https://cu-boulder-libraries.readthedocs.io/en/latest/)
