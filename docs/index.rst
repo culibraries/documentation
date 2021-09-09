@@ -21,25 +21,25 @@ Table of Contents
    :maxdepth: 2
    :caption: Infrasturcture and Policies 
 
-   policies/infrastructure/infrastructure
-   policies/infrastructure/aws
-   policies/version-control/version-control
-   policies/backup
+   pages/infrastructure
+   pages/aws
+   pages/version-control
+   pages/backup
 
 .. toctree::
    :maxdepth: 2
    :caption: Products
 
-   products/cu-scholar/institutional-repository
+   pages/institutional-repository
 
 .. toctree::
    :maxdepth: 2
    :caption: Maintenance Tasks
    
-   products/selfcheck/autostart
+   pages/autostart
 
 .. toctree::
    :maxdepth: 1
    :caption: Documentation
    
-   products/documentation/readthedocs
+   pages/readthedocs
