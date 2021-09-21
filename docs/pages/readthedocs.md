@@ -21,7 +21,7 @@ ReadtheDocs is CU Boulder Libraries Core Tech & Apps approved method for documen
     ```
 1. Create Virtual Environment
 
-    NOTE: Win variations assumes cmd.exe shell
+    NOTE: Win variations assume cmd.exe shell
     
     ```sh
     cd documentation
