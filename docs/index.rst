@@ -19,7 +19,7 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 2
-   :caption: Infrasturcture and Policies 
+   :caption: Infrastructure and Policies 
 
    pages/infrastructure
    pages/aws
