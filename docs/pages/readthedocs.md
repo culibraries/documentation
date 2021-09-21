@@ -20,7 +20,9 @@ ReadtheDocs is CU Boulder Libraries Core Tech & Apps approved method for documen
     git clone https://github.com/culibraries/documentation.git
     ```
 1. Create Virtual Environment
-NOTE: Win variations assumes cmd.exe shell
+
+    NOTE: Win variations assumes cmd.exe shell
+    
     ```sh
     cd documentation
     python3 -m venv venv (Win: python -m venv <dir>)
