@@ -31,6 +31,7 @@ Table of Contents
    :caption: Products
 
    pages/institutional-repository
+   pages/counter.md
 
 .. toctree::
    :maxdepth: 2
