@@ -25,13 +25,14 @@ Table of Contents
    pages/aws
    pages/version-control
    pages/backup
+   pages/ftp-server
 
 .. toctree::
    :maxdepth: 2
    :caption: Products
 
    pages/institutional-repository
-   pages/counter.md
+   pages/counter
 
 .. toctree::
    :maxdepth: 2
