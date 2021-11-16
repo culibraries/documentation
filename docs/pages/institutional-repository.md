@@ -30,6 +30,6 @@ CU Scholar data files are stored within the Flexibile Extensible Digital Object 
 ### Data File Checks
 
 1. All files uploaded undergoes virus scan.(CTS 4)
-2. Fixity checksum are performed on a regular intervals. MONTHLY/Quaterly/Year(???) timeframe.(CTS 3)
+2. Fixity checksums are performed at a regular interval (Quarterly). (CTS 3)
 
 
