@@ -25,7 +25,7 @@ CU Scholar metadata is stored within the Flexibile Extensible Digital Object Rep
 
 ### Data Files
 
-CU Scholar data files are stored within the Flexibile Extensible Digital Object Repository Architecture(fedora). The production data files are stored within AWS S3 object storage service. [Backup Policy](/pages/backup) (CTS 3 (offsite copy to PL implementation phase))
+CU Scholar data files are stored within the Flexibile Extensible Digital Object Repository Architecture(fedora). The production data files are stored within AWS S3 object storage service. [Backup Policy](/pages/backup) (CTS 3: offsite copy to CU Boulder PetaLibrary(implementation phase))
 
 ### Data File Checks
 
