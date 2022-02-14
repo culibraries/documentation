@@ -39,6 +39,7 @@ Table of Contents
    :caption: Maintenance Tasks
    
    pages/autostart
+   pages/bitcurator
 
 .. toctree::
    :maxdepth: 1
