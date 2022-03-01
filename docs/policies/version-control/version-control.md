@@ -20,6 +20,8 @@ Git Flow model for branch management.
 3. Hot-fix branches
 
 
-### Pull Request with Code Review 
+## Pull Request with Code Review 
 
-A pull request(PRs) is required to merge code into the `main` branch. All PRs to the `main` branch require a code review.
+1. A pull request(PRs) is required to merge code into the `main` branch. 
+2. All PRs to the `main` branch require a code review.
+3. 
