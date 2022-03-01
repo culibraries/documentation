@@ -9,7 +9,7 @@ Supported use cases include:
 
 As ProQuest uses secure file transfer, its public key is contained in the authorized_keys file. It's corresponding user account (proquest) does not use a password (this is the preferred method to connect to an EC2 instance).
 
-Sierra relies on FTP to transfer files and therefore has a password-enabled user account (sierra). There is no expiry date on the password. Credentials are stored in Keepass.
+Sierra relies on FTP to transfer files and therefore has a password-enabled user account (sierra). There is no expiry date on the password. Credentials are stored in Keepass. Note that transfer of files is initiated through the Sierra console and is usually done weekly by the Fin Clerk responsible for patron fines processing.
 
 ## Infrastructure
 
