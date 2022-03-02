@@ -1,4 +1,6 @@
-# Study Room Overview
+# Study Room 
+
+## Overview
 
 https://www.youtube.com/watch?v=PQ_0srwgagI
 
@@ -7,6 +9,7 @@ This project to deploy a study room reservation system at the Engineering, Math 
 This project is also intended to serve a prototype to inform a more comprehensive and common solution to meet the needs of all branches of University Libraries.
 
 ## System Specification
+
 ### Application Features
 * Check room (current or other rooms in the same locations) availability for current and future dates.
 * Reserve room using BuffOne card or email.
