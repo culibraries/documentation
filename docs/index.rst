@@ -33,6 +33,7 @@ Table of Contents
 
    pages/institutional-repository
    pages/counter
+   pages/study-room
 
 .. toctree::
    :maxdepth: 2
