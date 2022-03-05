@@ -41,6 +41,8 @@ Table of Contents
    
    pages/autostart
    pages/bitcurator
+   pages/cert-manager
+   pages/patron-fines
 
 .. toctree::
    :maxdepth: 1
