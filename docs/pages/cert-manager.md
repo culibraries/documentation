@@ -24,7 +24,7 @@ Certificates are held within a secret on production cluster. The following netwo
 1. http 80 => k8s-nodes
 1. https 443 => k8s-nodes-https
 
-## Letsencrypt Certificate and Issuer
+## Lets Encrypt Certificate and Issuer
 
 Github repository for certificates and issuer yaml file.
 

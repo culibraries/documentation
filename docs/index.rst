@@ -43,6 +43,7 @@ Table of Contents
    pages/bitcurator
    pages/cert-manager
    pages/patron-fines
+   pages/etd-load
 
 .. toctree::
    :maxdepth: 1
