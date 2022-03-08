@@ -30,8 +30,9 @@ Documentation for the Globus Online transfer of Petalibrary data to S3 Bucket.
 
 ## TODO
 
-1. If trial successful add endpoints
+1. If trial successful add new globus endpoints
 1. The CU Scholar archive is currently being manually moved. This would cut out the middle step and provide direct access from S3 to PetaLibrary.
 1. Transfer S3 bucket(cubl-ir-fcrepo) ==> /pl/archive/libdigicoll/dataSets/cu_scholar/cubl-ir-fcrepo
 1. The above actions will allow for 3 copies with one copy in a different geolocation. 
 1. This is part of the Core Trust Seal actions needed for CU Scholar.
+1. AWS Lambda to move IR files on demand
