@@ -55,6 +55,7 @@ Table of Contents
    pages/irDev
    pages/geolibraryDev
    pages/ansibleDev
+   pages/cybercomDev
 
 .. toctree::
    :maxdepth: 1
