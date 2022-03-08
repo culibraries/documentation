@@ -44,6 +44,17 @@ Table of Contents
    pages/cert-manager
    pages/patron-fines
    pages/etd-load
+   pages/globus-petalibrary
+   pages/k8s-cronjob-tasks
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Developer Resources
+
+   pages/static-web-server
+   pages/irDev
+   pages/geolibraryDev
+   pages/ansibleDev
 
 .. toctree::
    :maxdepth: 1
