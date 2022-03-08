@@ -12,7 +12,21 @@ Documentation for the Globus Online transfer of Petalibrary data to S3 Bucket.
 ## Trial S3 Data Transfer
 
 1. CTA (Vida) is currently awaiting UC Boulder Research Computing account with access to Library data.
+1. Data Trial: Contact Michael Dulock
 
+    ```sh
+    /pl/archive/libdigicoll/libimage-bulkMove/
+    (2TB)
+    
+    /pl/archive/libdigicoll/libstore-bulkMove/ 
+    (4.4TB)
+
+    /pl/archive/libdigicoll/libberet-bulkMove/RFS/DigitalImages/
+    (Important)
+
+    /pl/archive/libdigicoll/libberet-bulkMove/RFS/
+    (23TB)
+    ```
 
 ## TODO
 
