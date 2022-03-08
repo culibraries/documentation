@@ -1,6 +1,6 @@
 # Kubernetes Cronjob Tasks
 
-This document describes the individual Cronjob Tasks associated with our current kubernetes infrastructure. Backup  cronjob to S3 bucket(cubl-backup) with rule to keep the last 30 days. [Github Repository](https://github.com/culibraries/k8s-cronjob-tasks)
+This document describes the individual Cronjob Tasks associated with our current kubernetes infrastructure. The backup  cronjobs to S3 bucket(cubl-backup) have a 30 day lifecycle rule. [Github Repository](https://github.com/culibraries/k8s-cronjob-tasks)
 
 ## Active Tasks 
 
