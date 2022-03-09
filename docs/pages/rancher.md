@@ -90,5 +90,7 @@ The problem was that the spot node was terminated but the etcd cluster did not r
 
 Returned to UI and added new etcd instances. etcd nodes most always be an odd number. Nodes vote stuck in split-brain or etcd cluster had 4 nodes and was waiting on non-existent node to vote.
 
+### Unable to mount volume
 
-Docs for development process.
+If all nodes are not in a subnet that contains a volume. Deployment will fail with volume mount.
+
