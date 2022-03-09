@@ -58,10 +58,10 @@ The Catalog and Data Store are using MongoDB for the backend. The API leverages 
             proxy_set_header Content-Length "";
             proxy_set_header X-Original-URI $request_uri;
             proxy_set_header X-Original-METHOD $request_method;
-            }
+        }
 
-            error_page 401 = @error401;
-            location @error401 {
+        error_page 401 = @error401;
+        location @error401 {
             set_escape_uri $request_uri_encoded $request_uri;
             set $saml_sso https://libapps.colorado.edu/api/api-saml/sso/saml;
             return 302 $saml_sso?next=$request_uri_encoded;
