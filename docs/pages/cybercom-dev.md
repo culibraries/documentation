@@ -29,7 +29,7 @@ Changes with Kubernetes:
 1. [SAML Service Provider](https://github.com/culibraries/django-saml2-pro-auth/blob/master/README.md)
 
 ## Catalog and Data Store 
-The Catalog and Data Store are backed by MongoDB. The API leverages the pymongo query language. This includes aggregation and distict queries. [Documentation](https://cybercom-docs.readthedocs.io/en/latest/pages/rest_api.html)
+The Catalog and Data Store are using MongoDB for the backend. The API leverages the pymongo query language, including aggregation and distinct queries. [Documentation](https://cybercom-docs.readthedocs.io/en/latest/pages/rest_api.html)
 
 ## Applications API SSO Authentication
 
@@ -99,7 +99,7 @@ The Catalog and Data Store are backed by MongoDB. The API leverages the pymongo 
 
 1. Certificate Expiration: Will see logs with certificate expiration. Current certificates expiration `Sep 10 19:12:02 2029 GMT`
 1. Upgrading dependencies: API <===> RabbitMQ <===> Celery(kombu)
-1. Additionally, SSL parameters changin from ssl to tls
+1. Additionally, TSL arguments are changing on [Mongo URI](https://docs.mongodb.com/manual/reference/connection-string/#tls-options) from ssl to tls
 1. Mongo unable to connect to volume. Volume assigned to subnet. Spot instances occassional do not have capacity in specific subnet.
 1. Celery Queue build missing requirement
 
@@ -111,6 +111,7 @@ The Catalog and Data Store are backed by MongoDB. The API leverages the pymongo 
 1. Room Booking Admin
 1. Survey
 1. Counter
+1. ARKs [info](https://arks.org/about/ark-naans-and-systems/)
 1. Static (NYTimes,thumbnails)
 1. GeoLibrary Data Loader
 1. IR Scholar Export Report
