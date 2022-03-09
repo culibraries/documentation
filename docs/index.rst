@@ -52,10 +52,10 @@ Table of Contents
    :caption: Developer Resources
 
    pages/static-web-server
-   pages/irDev
-   pages/geolibraryDev
-   pages/ansibleDev
-   pages/cybercomDev
+   pages/ir-dev
+   pages/geolibrary-dev
+   pages/ansible-dev
+   pages/cybercom-dev
 
 .. toctree::
    :maxdepth: 1
