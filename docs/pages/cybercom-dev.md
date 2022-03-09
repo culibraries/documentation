@@ -1,6 +1,6 @@
 # Cybercom API
 
-Cybercomm API is based from [open-source project](https://cybercom-docs.readthedocs.io/en/latest/). CU Boulder library modified the API using federated SSO and security group merge for both local groups and grouper groups.
+Cybercomm API is based from [open-source project](https://cybercom-docs.readthedocs.io/en/latest/). CU Boulder library modified the API using federated SSO and security groups merged from local and grouper groups.
 
 ![Cybercommons](assets/cybercommons.png)
 
