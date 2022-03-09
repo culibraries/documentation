@@ -112,7 +112,7 @@ The Catalog and Data Store are using MongoDB for the backend. The API leverages 
 |Room Booking (tablet only)|Yes|[Room Booking](https://github.com/culibraries/room-booking-django-app) | ||
 |[Room Booking Admin](https://libapps.colorado.edu/room-booking-admin/#/) |Yes| [Room Booking](https://github.com/culibraries/room-booking-django-app)| ||
 |[Survey](https://libapps.colorado.edu/survey)|Yes|||Yes|
-|Counter|Yes|[counter-django-app](https://github.com/culibraries/counter-django-app)|[counterq](https://github.com/culibraries/counterq)||
+|[Counter](https://libapps.colorado.edu/reports/counter/)|Yes|[counter-django-app](https://github.com/culibraries/counter-django-app)|[counterq](https://github.com/culibraries/counterq)||
 |ARK Server , [info](https://arks.org/about/ark-naans-and-systems/)|Yes |[ark-django-app](https://github.com/culibraries/ark-django-app)||Yes|
 |[Static (NYTimes,thumbnails)](https://libapps.colorado.edu/static/)| Yes ||||
 |[GeoLibrary Data Loader](https://libapps.colorado.edu/geoDataLoader/)|Yes||[geo-blacklightq](https://github.com/culibraries/geo-blacklightq) |Yes|
