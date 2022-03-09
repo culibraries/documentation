@@ -26,6 +26,7 @@ Table of Contents
    pages/version-control
    pages/backup
    pages/ftp-server
+   pages/rancher
 
 .. toctree::
    :maxdepth: 2
