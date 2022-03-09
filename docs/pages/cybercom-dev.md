@@ -103,20 +103,23 @@ The Catalog and Data Store are using MongoDB for the backend. The API leverages 
 1. Mongo unable to connect to volume. Volume assigned to subnet. Spot instances occassional do not have capacity in specific subnet.
 1. Celery Queue build missing requirement
 
-## Applications and Celery Tasks
-1. LibBudget
-1. Print Purchase
-1. Cloud Browser
-1. Room Booking
-1. Room Booking Admin
-1. Survey
-1. Counter
-1. ARK Server [info](https://arks.org/about/ark-naans-and-systems/)
-1. Static (NYTimes,thumbnails)
-1. GeoLibrary Data Loader
-1. IR Scholar Export Report
-1. Email Service
-1. Thumbnail Creation (Maps Cloud Browser)
+## Applications
+|Application| Auth | Django | Celery | Mongo|
+|-----------|-------|-------|---------|----|
+|[LibBudget](https://libapps.colorado.edu/libbudget/)| Yes | |[emailCULibq](https://github.com/culibraries/emailCULibq)||
+|[Print Purchase](https://libapps.colorado.edu/printpurchase/)|  Yes | |[emailCULibq](https://github.com/culibraries/emailCULibq),[ppodq](https://github.com/culibraries/ppodq)| |
+|[Cloud Browser](https://libapps.colorado.edu/cloud-browser/dashboard)|Yes|[cloud-browser-django-app](https://github.com/culibraries/cloud-browser-django-app)|[thumbnailq](https://github.com/culibraries/thumbnailq) | |
+|Room Booking (tablet only)|Yes|[Room Booking](https://github.com/culibraries/room-booking-django-app) | ||
+|[Room Booking Admin](https://libapps.colorado.edu/room-booking-admin/#/) |Yes| [Room Booking](https://github.com/culibraries/room-booking-django-app)| ||
+|[Survey](https://libapps.colorado.edu/survey)|Yes|||Yes|
+|Counter|Yes|[counter-django-app](https://github.com/culibraries/counter-django-app)|[counterq](https://github.com/culibraries/counterq)||
+|ARK Server , [info](https://arks.org/about/ark-naans-and-systems/)|Yes |[ark-django-app](https://github.com/culibraries/ark-django-app)||Yes|
+|[Static (NYTimes,thumbnails)](https://libapps.colorado.edu/static/)| Yes ||||
+|[GeoLibrary Data Loader](https://libapps.colorado.edu/geoDataLoader/)|Yes||[geo-blacklightq](https://github.com/culibraries/geo-blacklightq) |Yes|
+|[IR Scholar Export Report](https://test-libapps.colorado.edu/api/queue/)| Yes ||[ir-exportq](https://github.com/culibraries/ir-exportq)||
+|Email Service|Yes||[emailCULibq](https://github.com/culibraries/emailCULibq)||
+|Thumbnail Creation|Yes||[thumbnailq](https://github.com/culibraries/thumbnailq)||
+
 
 ## Inactive Applications
 
