@@ -111,7 +111,7 @@ The Catalog and Data Store are using MongoDB for the backend. The API leverages 
 1. Room Booking Admin
 1. Survey
 1. Counter
-1. ARKs [info](https://arks.org/about/ark-naans-and-systems/)
+1. ARK Server [info](https://arks.org/about/ark-naans-and-systems/)
 1. Static (NYTimes,thumbnails)
 1. GeoLibrary Data Loader
 1. IR Scholar Export Report
