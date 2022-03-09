@@ -104,7 +104,7 @@ The Catalog and Data Store are using MongoDB for the backend. The API leverages 
 1. Celery Queue build missing requirement
 
 ## Applications
-|Application| Auth | Django | Celery | Mongo|
+|Application| Auth | Django Apps| Celery | Mongo|
 |-----------|-------|-------|---------|----|
 |[LibBudget](https://libapps.colorado.edu/libbudget/)| Yes | |[emailCULibq](https://github.com/culibraries/emailCULibq)||
 |[Print Purchase](https://libapps.colorado.edu/printpurchase/)|  Yes | |[emailCULibq](https://github.com/culibraries/emailCULibq),[ppodq](https://github.com/culibraries/ppodq)| |
