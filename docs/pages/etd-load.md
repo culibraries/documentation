@@ -17,7 +17,10 @@ Access scholar-worker image with Kubectl. Then go to <code>/efs/prod/proquest</c
 
 ## Execute Script
 
-* Step 1: Access to ir-scholar -> scholar-worker in libops.
+* Step 1: scholar-worker
+    ```sh
+    kubectl exec -it scholar-worker-78f7c8646-mztqv -n scholar -- bash
+    ```
 * Step 2: at /app run command below:
 
     In TEST:
