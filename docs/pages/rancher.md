@@ -7,10 +7,10 @@ The original deployment of rancher was on EC2 instance. Single docker container 
 
 ## System Operations
 
-    ```sh
-    service-rancher
-    Usage: /opt/bin/service-rancher {status|start|stop|restart}
-    ```
+```sh
+service-rancher
+Usage: /opt/bin/service-rancher {status|start|stop|restart}
+```
 
 ## Backup
 The data volume for the EC2 instance has automatic snapshots for 15 days. 
@@ -28,9 +28,9 @@ The Rancher UI did not come up and kept restarting itself due to accessing the A
 
 #### Error
 
-    ```sh
-    localhost:6443: x509: certificate has expired or is not yet valid
-    ```
+```sh
+localhost:6443: x509: certificate has expired or is not yet valid
+```
 
 #### Solution
 
