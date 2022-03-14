@@ -58,7 +58,6 @@ Table of Contents
    pages/geolibrary-dev
    pages/ansible-dev
    pages/cybercom-dev
-   pages/ir-dev
    pages/geolibrary-dev
 
 .. toctree::
