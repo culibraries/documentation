@@ -3,6 +3,8 @@ The patron fines workflow provides a means for Sierra generated fines file to be
 
 ## Overview
 
+Contact: Mee Chang
+
 1. Library Personnel submit a request to generate export
 2. Sierra exports file to FTP server
 3. Data file is stored in AWS EFS filesystem

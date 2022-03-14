@@ -27,6 +27,7 @@ Table of Contents
    pages/backup
    pages/ftp-server
    pages/rancher
+   pages/enterprise-logging
 
 .. toctree::
    :maxdepth: 2
@@ -57,6 +58,8 @@ Table of Contents
    pages/geolibrary-dev
    pages/ansible-dev
    pages/cybercom-dev
+   pages/ir-dev
+   pages/geolibrary-dev
 
 .. toctree::
    :maxdepth: 1

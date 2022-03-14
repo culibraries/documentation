@@ -7,13 +7,18 @@ The original deployment of rancher was on EC2 instance. Single docker container 
 
 ## System Operations
 
-```sh
-service-rancher
-Usage: /opt/bin/service-rancher {status|start|stop|restart}
-```
+    ```sh
+    service-rancher
+    Usage: /opt/bin/service-rancher {status|start|stop|restart}
+    ```
 
 ## Backup
 The data volume for the EC2 instance has automatic snapshots for 15 days. 
+
+## Administration
+
+The production cluster is a single docker container that deployed a Rancher RKE cluster. If a node is terminated or has pressure(Disk/Memory/CPU), the node requires manual interaction. Spot instance terminated, delete the node in Rancher. If a node has pressure, you can download keys and ssh into the EC2 Instance. I find it easier to delete the node and generate a replacement. 
+
 
 ## Historical Error and Resolution
 
@@ -93,4 +98,6 @@ Returned to UI and added new etcd instances. etcd nodes most always be an odd nu
 ### Unable to mount volume
 
 If all nodes are not in a subnet that contains a volume. Deployment will fail with volume mount.
+
+
 
