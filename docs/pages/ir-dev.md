@@ -13,6 +13,8 @@ The Samvera community has good documentation regarding local development and dep
 
 * Double Check: solr_wrapper and fcrepo_wrapper require ```java 1.8```
 
+[Development Documentation](https://samvera.github.io/)
+
 ### Configuration
 * Build local Gems
 
