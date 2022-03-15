@@ -11,4 +11,7 @@ Contact: Michael Dulock
 ## Problems
 
 1. AWS EFS fileshare 
-    * Front end and workers map the same paths
+    * Hyrax front-end and Hyrax-workers did not map uploads to the same path
+    * The Hyrax container(front-end) had uploads in path `/app/samvera/uploadshyrax`
+    * The Hyrax worker container had the uploads int path `/app/samvera/uploads`
+    * This may be fixed with any updates to the Chart.

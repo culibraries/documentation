@@ -36,3 +36,16 @@ Documentation for the Globus Online transfer of Petalibrary data to S3 Bucket.
 1. The above actions will allow for 3 copies with one copy in a different geolocation. 
 1. This is part of the Core Trust Seal actions needed for CU Scholar.
 1. AWS Lambda to move IR files on demand
+
+## Manual backup to Petalibrary
+1. Sync S3 Bucket to local drive
+```sh
+cd { data download directory }
+aws s3 sync s3://cubl-ir-fcrepo .
+```
+1. Install Globus Connect Personal
+1. Create Endpoint on System
+1. Use the Web Interface to start a transfer from Laptop Endpoint to Petalibrary
+    * Laptop endpoint where the AWS sync happened
+    * Petalibrary Endpoint `/pl/archive/libdigicoll/dataSets/cu_scholar/`
+    * select `cubl-ir-fcrepo`
