@@ -9,3 +9,7 @@ This documentation is for the environmental monitors. The operational manuals ar
 
 Update Cronjobs with the correct paths. See [datalogger repository](https://github.com/culibraries/data-loggers/blob/main/README.md) 
 
+## Cloud Front Address
+
+[https://d3v45qbh6kyrnc.cloudfront.net/](https://d3v45qbh6kyrnc.cloudfront.net/)
+

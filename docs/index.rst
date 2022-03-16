@@ -48,6 +48,7 @@ Table of Contents
    pages/etd-load
    pages/globus-petalibrary
    pages/k8s-cronjob-tasks
+   pages/data-logger
 
 .. toctree::
    :maxdepth: 1
