@@ -26,6 +26,8 @@ Table of Contents
    pages/version-control
    pages/backup
    pages/ftp-server
+   pages/rancher
+   pages/enterprise-logging
 
 .. toctree::
    :maxdepth: 2
@@ -33,6 +35,7 @@ Table of Contents
 
    pages/institutional-repository
    pages/counter
+   pages/study-room
 
 .. toctree::
    :maxdepth: 2
@@ -40,6 +43,23 @@ Table of Contents
    
    pages/autostart
    pages/bitcurator
+   pages/cert-manager
+   pages/patron-fines
+   pages/etd-load
+   pages/globus-petalibrary
+   pages/k8s-cronjob-tasks
+   pages/data-logger
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Developer Resources
+
+   pages/static-web-server
+   pages/ir-dev
+   pages/geolibrary-dev
+   pages/ansible-dev
+   pages/cybercom-dev
+   pages/geolibrary-dev
 
 .. toctree::
    :maxdepth: 1
