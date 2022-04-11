@@ -20,13 +20,12 @@ for processing and importing into the COUNTER database.
 
 Workflow steps:
 
-1. Copy new reports to a local working directory.
+1. Copy new reports to remote server.
 2. Run preprocessing/renaming script.
-3. Copy renamed reports to the staging server.
-4. Replicate production database on staging.
-5. Run loading script.
-6. Restore production database from staging.
-7. Archive reports to AWS S3.
+3. Replicate production database on staging.
+4. Run loading script.
+5. Restore production database from staging.
+6. Archive reports to AWS S3.
 
 Each of these steps will be described in further detail later.
 
@@ -44,31 +43,33 @@ repo (assuming you are starting at the home directory):
 All data (including the MySQL database) is stored on an attached volume (/dev/sdf) currently
 sized at 50 GiB.
 
+In addition to MySQL, the staging server requires the following software components:
+
+* Python 3.x
+* openpyxl 3.0.9
+* mysql-connector-python 8.0.27
+* boto3 1.19.7
+* botocore 1.22.7
+
+Versions are minimum requirements. Updated modules are acceptable.
+
 ## Database Schema
 ![COUNTER ERD](assets/counter-erd.png)
 
 ## Details of the Loading Process
-### Copy New Reports to Local Working Directory
-Clone the repo on your local machine. Make a working directory called 'reports' in your
-cloned repo:
-
-    $ mkdir reports
-
-Then copy all files to be processed from the Q: drive to this working directory.
+### Copy New Reports to Remote Server
+Copy all files to be processed from the Q: drive to the remote server. The working directory
+for all source files is /data/counter.
 
 ### Run Preprocessing/Renaming Script
 Run the following command:
 
     $ python preprocess-source-files.py
 
-This script will copy and rename all files in the working directory into a temporary
-directory (reports\tmp). Refer to the comments in the code for a description of the format.
+This script will rename all files in the working directory to a common format. Refer to the
+comments in the code for a description of the format.
 
 If errors are raised, they will be recorded in an error log.
-
-### Copy Renamed Reports to the Staging Server
-Assuming that the previous step was successful, copy the renamed Excel files to the staging
-server using FTP or SSH file transfer. The files should be copied to /data/counter.
 
 ### Replicate Production Database on Staging
 The starting point for loading new COUNTER reports is the current production database. To
@@ -130,6 +131,20 @@ Do this by running the following command:
     $ aws s3 mv /data/counter/ s3://cubl-backup/counter-reports/ --recursive --storage-class ONEZONE_IA
 
 ## Other Considerations
+### Running Loading Script in Screen Mode
+It is recommended that the loading script be run in a Linux `screen` session. Using this approach
+will enable the script to run in the background while disconnected from the remote host.
+
+To start a screen session, just type `screen` at the command prompt. This will open a new
+screen session. From this point forward, enter commands as you normally would. To return to the
+default terminal window, enter `ctrl+a d` to detach from the screen session. The program running
+in the screen session will continue to run after you detach from the session.
+
+To resume the screen session, enter `screen -r` at the command prompt.
+
+Further information about the Linux screen command is available at
+[How To Use Linux Screen](https://linuxize.com/post/how-to-use-linux-screen/).
+
 ### When Errors Occur During Loading
 The loading process will raise an error (and log it) if the source spreadsheet cannot be loaded. Errors
 typically occur when the spreadsheet does not adhere to the COUNTER specification. For example, sometimes
@@ -141,6 +156,7 @@ examined for any obvious formatting errors and, if found, these can be rectified
 script rerun. If errors persist, let the Product Owner know.
 
 ### Updating the platform_ref Table
+TBD
 
-
-### Making Backups
+### Using a Virtual Environment
+TBD
