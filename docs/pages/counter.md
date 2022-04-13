@@ -40,6 +40,10 @@ repo (assuming you are starting at the home directory):
 
     $ git clone https://github.com/culibraries/counter-data-loader.git
 
+After cloning the repo, you will need to copy the `config.py` file to the /counter-data-loader/dataloader
+directory to enable a connection to the local MySQL database. The config file is available in KeePass
+in the MySQL folder.
+
 All data (including the MySQL database) is stored on an attached volume (/dev/sdf) currently
 sized at 50 GiB.
 
@@ -64,10 +68,10 @@ for all source files is /data/counter.
 ### Run Preprocessing/Renaming Script
 Run the following command:
 
-    $ python preprocess-source-files.py
+    $ python3 preprocess-source-files.py <report directory>
 
-This script will rename all files in the working directory to a common format. Refer to the
-comments in the code for a description of the format.
+This script will rename all files in the specified working directory to a common format.
+Refer to the comments in the code for a description of the naming convention.
 
 If errors are raised, they will be recorded in an error log.
 
@@ -75,11 +79,12 @@ If errors are raised, they will be recorded in an error log.
 The starting point for loading new COUNTER reports is the current production database. To
 replicate the production database on staging, run the following commands:
 
-    $ mysqldump counter5 -h cudbcluster.cluster-cn8ntk7wk5rt.us-west-2.rds.amazonaws.com
-    -u dbmuser -p --add-drop-database -r /data/backups/20220329-counter-prod.sql
-    $ mysql counter5 -u dbmuser -p < /data/backups/20220329-counter-prod.sql
+    $ mysqldump --databases counter5 -h cudbcluster.cluster-cn8ntk7wk5rt.us-west-2.rds.amazonaws.com -u dbmuser -p --add-drop-database -r /data/backups/20220329-counter-prod.sql
+    $ mysql -u dbmuser -p < /data/backups/20220329-counter-prod.sql
 
-When prompted, enter the password for dbmuser (available in KeePass).
+When prompted, enter the password for dbmuser (available in KeePass). Be patient as the dump and load can
+take a bit of time depending on the size of the production database. While the dump is fairly quick (~30-45s),
+the load can take upwards of 8-10 minutes.
 
 NOTE: Use the current date-time stamp as the file prefix.
 
@@ -103,7 +108,7 @@ This is an iterative process that is performed for every spreadsheet to the load
 The entire sequence of steps as outlined above are initiated and executed from a single "controller"
 file (loader.py). The process is started by entering the following command:
 
-    $ python loader.py <report directory> <year>
+    $ python3 loader.py <report directory> <year>
 
 The report directory parameter is the location of the prepared Excel files. The year parameter is
 the 4-digit year that corresponds to the usage data, e.g., for a report containing usage data for
@@ -111,18 +116,23 @@ the 4-digit year that corresponds to the usage data, e.g., for a report containi
 
 Refer to the source code comments for further details.
 
-### Restore Database to Production
+### Restore Database to Test/Production
 Once all spreadsheets have been loaded, the database on the staging server can be restored to
-the production environment. Before doing this, though, the various database indexes must be
-recreated. To do this, run the following command:
+the test RDS cluster for acceptance testing:
 
-    $ mysql counter5 -u dbmuser -p < sql/create-indexes.sql
+    $ mysqldump --databases counter5 -u dbmuser -p --add-drop-database -r /data/backups/20220329-counter-staging.sql
+    $ mysql -h test-dbcluster.cluster-cn8ntk7wk5rt.us-west-2.rds.amazonaws.com -u dbmuser -p < /data/backups/20220329-counter-staging.sql
 
-After the indexes have been recreated, the database can be restored to production:
+Next recreate the indexes in the test environment:
 
-    $ mysqldump counter5 -u dbmuser -p --add-drop-database -r /data/backups/20220329-counter-staging.sql
-    $ mysql counter5 -h cudbcluster.cluster-cn8ntk7wk5rt.us-west-2.rds.amazonaws.com -u dbmuser
-    -p < /data/backups/20220329-counter-staging.sql
+    $ mysql counter5 -h test-dbcluster.cluster-cn8ntk7wk5rt.us-west-2.rds.amazonaws.com -u dbmuser -p < sql/create-indexes.sql
+
+With the test database restored, the designated product team can begin acceptance testing. For this step,
+it is recommended that a handful of spreadsheets be compared to the data returned from the UI. On
+completion of testing, the updated database can be restored to the production environment:
+
+    $ mysql -h cudbcluster.cluster-cn8ntk7wk5rt.us-west-2.rds.amazonaws.com -u dbmuser -p < /data/backups/20220329-counter-staging.sql
+    $ mysql -h cudbcluster.cluster-cn8ntk7wk5rt.us-west-2.rds.amazonaws.com -u dbmuser -p < sql/create-indexes.sql
 
 ### Archive Reports to AWS S3
 The last step in the process is to archive all of the processed spreadsheets by moving them to AWS S3.
@@ -148,7 +158,22 @@ Further information about the Linux screen command is available at
 ### When Errors Occur During Loading
 The loading process will raise an error (and log it) if the source spreadsheet cannot be loaded. Errors
 typically occur when the spreadsheet does not adhere to the COUNTER specification. For example, sometimes
-there will be a blank row at the top of the spreadsheet.
+there will be a blank row at the top of the spreadsheet. Other formatting issues may also cause errors
+and two common problems are:
+
+* A platform name is not referenced in the `platform_ref` table.
+* ProQuest data consistently presents problems that preclude a clean load.
+
+For the platform name issue, either add the missing platform data to the `platform_ref` table or update
+the spreadsheet (the platform column) to reflect a known reference value. Save the changes and
+reload the spreadsheet.
+
+For the Proquest issue, same title entries spill over into two rows (see example below), a situation
+that will cause the load process to fail. In these cases (it's usually 12 or so rows), the simplest
+approach (though tedious) is to manually fix the offending rows, save the changes, and then reload
+the spreadsheet.
+
+![ProQuest Formatting Error](assets/proquest-formatting-error.png)
 
 In these cases, the loading script will skip the spreadsheet and move on to the next one in the queue.
 An entry will also be written to a log file. After loading has finished, these Excel files should be
@@ -156,7 +181,17 @@ examined for any obvious formatting errors and, if found, these can be rectified
 script rerun. If errors persist, let the Product Owner know.
 
 ### Updating the platform_ref Table
-TBD
+If a new platform needs to be added to the `platform_ref` table, enter the following command in
+the MySQL environment:
+
+    mysql> INSERT INTO platform_ref VALUES (id, name, preferred_name, has_faq);
+
+where
+
+* id = the next id in the sequence (do a select max(id) to find the max)
+* name = the name contained in the spreadsheet that needs to be reference
+* preferred_name = the common or preferred name for the platform (consult with the PO as needed)
+* has_faq = is always 0 (reserved for future use)
 
 ### Using a Virtual Environment
 TBD
