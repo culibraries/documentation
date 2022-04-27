@@ -1,4 +1,4 @@
-# Room Reservation application and hardware
+# Room Reservation Tablets
 
 ## Overview
 
@@ -45,8 +45,8 @@ Login to [Libcal](https://colorado.libcal.com/admin/)
 Only users who have administrative permission is able to follow the steps below to setup the software for the application.
 
 1. Login to room booking admin
-    * [Production](https://libapps.colorado.edu/room-booking-admin)
-    * [Test](https://test-libapps.colorado.edu/room-booking-admin)
+    * Production <https://libapps.colorado.edu/room-booking-admin>
+    * Test <https://test-libapps.colorado.edu/room-booking-admin>
 1. Click “New Device”.
 1. Click “Generate” to generate new id for the device.
 1. Fill out all of the information including:
@@ -83,8 +83,8 @@ Text-correction Setup : Settings > Language & Input > Android Keyboard (AOSP) > 
     * Pink is ON, Gray is OFF
     * Press “< Default App” to go back
 1. Press “Playback Setting” > “Web URL” and change the url
-    * [Production](https://libapps.colorado.edu/room-booking-admin)
-    * [Test](https://test-libapps.colorado.edu/room-booking-admin)
+    * Production <https://libapps.colorado.edu/room-booking-admin>
+    * Test <https://test-libapps.colorado.edu/room-booking-admin>
     * Press the "go back" icon on the top-left
 1. Login using the admin user credential in (Software setup) section above, then activate the device that you want to set up in the list by turn on the toggle button.
     * Pink is Activated, Gray is Deactivated
