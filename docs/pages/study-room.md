@@ -77,7 +77,7 @@ Note : The users are not able to Activate/Deactivate/Delete the device at their 
 1. Open a ServiceNow ticket with Dedicated Desktop Support ticket (DDS)
 
     ```txt
-    Please add the following MAC addresses to SafeConnect with the user `libnotify@colorado.edu`. These for are android tablets that are deploying to support an in-place room reservation system in the Libraries.
+    Please add the following MAC addresses to SafeConnect with the user `libnotify@colorado.edu`. These are for android tablets that we are deploying to support an in-place room reservation system in the Libraries.
 
     ma:c1
     ma:c2
