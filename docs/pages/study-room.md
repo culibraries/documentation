@@ -63,12 +63,47 @@ Note : The users are not able to Activate/Deactivate/Delete the device at their 
 
 ### Wireless Setup
 
-1. Settings > Wi-Fi > Select “UCB Wireless” on the list.
-1. Open “ Browser” > Enter URL : “https://safeconnect.colorado.edu:9443/authenticate.!%5E”
-(Reference : https://oit.colorado.edu/services/networking-internet-services/ucb-wireless)
-1. Please contact University Libraries - Core Tech & Apps for account credentials to login to University Of Colorado - Boulder Wireless network. 
-Time/Date Setup : Settings > Date & Time > Turn off “Automatic time zone” > “Select time zone” to “Denver GMT-07:00” > Turn on “Automatic time zone” 
-Text-correction Setup : Settings > Language & Input > Android Keyboard (AOSP) > Text correction > Switch all off except “Block offensive words”
+1. Connect the tablet to `UCB Wireless` WiFi. The tablet should be able to connect to the network but not authenticate onto the WiFi.
+1. Find the device's WiFi MAC address
+    1. Unlock the tablet
+       1. Touch/Hold the top-right corner of the tablet for 10+ seconds then a password dialog will pop-up
+       1. Enter the pin (In Keepass: `Study Room Application/Hardware Tablet Pin`).
+    1. Use the `Home/House` icon in the Mimo app to get to the "Desktop"
+    1. Slide open the top menu from the upper right corner and click the `gear` icon to access the settings
+    1. Scroll to the bottom and click `About tablet`
+    1. Click `Status`
+    1. Find `Wi-Fi MAC address`
+1. Leave the tablet connected to the network
+1. Open a ServiceNow ticket with Dedicated Desktop Support ticket (DDS)
+
+    ```txt
+    Please add the following MAC addresses to SafeConnect with the user `libnotify@colorado.edu`. These are for android tablets that we are deploying to support an in-place room reservation system in the Libraries.
+
+    ma:c1
+    ma:c2
+    ma:c3
+
+    Thank you!
+    CTA
+    ```
+
+1. Wait 20 minutes after DDS adds the devices to SafeConnect for the configuration to propagate.
+1. "Forget" the existing "UCB Wireless" configuration and reselect "UCB Wireless".
+
+The device should connect and you should be able to access webpages via a browser.
+
+### Device Setup
+
+In the Android Settings menus:
+
+1. Time/Date Setup
+   1. Settings > Date & Time
+   1. Turn off “Automatic time zone”
+   1. “Select time zone” to “Denver GMT-07:00”
+   1. Turn on “Automatic time zone”
+1. Text-correction Setup
+   1. Settings > Language & Input > Android Keyboard (AOSP) > Text correction
+   1. Switch all off except “Block offensive words”
 
 ### Application Setup
 
