@@ -1,6 +1,6 @@
 # Markdown Guide for documentation
 
-1. Number symbol followed by a space is used for marking headings in bold. Additonal number sympols allow for subheadings (# then ## then ###, etc.)
+1. Number `# ` symbol followed by a space is used for marking headings. Additional number symbols allow for subheadings (`# ` then `## ` then `### `, etc.)
 
 1. The number 1 then a period and a space (1. ) is used to create a numbered list. Each section of the list needs the 1. and Visual Studio will automatically number each selection
 
