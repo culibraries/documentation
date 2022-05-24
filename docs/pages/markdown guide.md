@@ -4,7 +4,7 @@
 
 1. The number 1 then a period and a space (1. ) is used to create a numbered list. Each section of the list needs the 1. and Visual Studio will automatically number each selection
 
-1. App level markups are done with an accent a grave ` on either side of the word(s) to be highlighred
+1. App level markups are done with an accent a grave ``` on either side of the word(s) to be highlighted
 
 `Apps`
 
