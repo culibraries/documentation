@@ -8,7 +8,7 @@
 
 `Apps`
 
-1. Dropdown menus should be highlighted by italics marked up by using a single asterix
+1. Dropdown menus should be highlighted by italics marked up by using a single asterisk
 
 *Dropdowns*
 
