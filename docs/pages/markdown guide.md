@@ -19,7 +19,7 @@
 1. Notes can be added by using 3 aceent a grave (backticks) followed by the word note in brackets then the actual note and three closing backticks
 
 ```{note} this is an important note```
-One can name notes other things warning, Important, etc. and all will be boxed off with the word in the brackets highlighted
+There are other callout types (structured the same as `note`):`attention`, `caution`, `danger`, `deprecated`, `error`, `hint`, `important`, `tip`, `warning`, `versionadded`, `versionchange`.
 
 1. Notes and other directives can be nested by altering the number of back ticks, the top directive must have more back ticks than then the bottom directive (4 backticks vs. 3 `, etc. )
 
