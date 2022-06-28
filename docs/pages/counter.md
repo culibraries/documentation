@@ -12,6 +12,7 @@ the aggregation and reporting of electronic resource usage data for University
 Libraries.
 
 ## Overview of Loading Process
+
 The following describes the steps to load COUNTER data from Excel spreadsheets. These
 spreadsheets, or reports, are downloaded from the various platform sites by e-resources
 staff and are stored on the Q: drive (typically Q:\SharedDocs\Usage Stats) in year-specific
@@ -30,6 +31,7 @@ Workflow steps:
 Each of these steps will be described in further detail later.
 
 ## Staging Infrastructure
+
 The COUNTER staging infrastructure consists of an EC2 instance (counter-staging) with MySQL 5.7
 installed. This approach removes the loading workload to AWS from your local desktop/laptop.
 The staging server also facilitates access to both the test and production databases in RDS.
@@ -38,7 +40,9 @@ Details of the instance can be found in the AWS console.
 Loading scripts and associated modules can be copied to the staging server by cloning the Github
 repo (assuming you are starting at the home directory):
 
-    $ git clone https://github.com/culibraries/counter-data-loader.git
+```sh
+$ git clone https://github.com/culibraries/counter-data-loader.git
+```
 
 After cloning the repo, you will need to copy the `config.py` file to the /counter-data-loader/dataloader
 directory to enable a connection to the local MySQL database. The config file is available in KeePass
@@ -58,17 +62,23 @@ In addition to MySQL, the staging server requires the following software compone
 Versions are minimum requirements. Updated modules are acceptable.
 
 ## Database Schema
+
 ![COUNTER ERD](assets/counter-erd.png)
 
 ## Details of the Loading Process
+
 ### Copy New Reports to Remote Server
+
 Copy all files to be processed from the Q: drive to the remote server. The working directory
 for all source files is /data/counter.
 
 ### Run Preprocessing/Renaming Script
+
 Run the following command:
 
-    $ python3 preprocess-source-files.py <report directory>
+```sh
+python3 preprocess-source-files.py <report directory>
+```
 
 This script will rename all files in the specified working directory to a common format.
 Refer to the comments in the code for a description of the naming convention.
@@ -76,11 +86,14 @@ Refer to the comments in the code for a description of the naming convention.
 If errors are raised, they will be recorded in an error log.
 
 ### Replicate Production Database on Staging
+
 The starting point for loading new COUNTER reports is the current production database. To
 replicate the production database on staging, run the following commands:
 
-    $ mysqldump --databases counter5 -h cudbcluster.cluster-cn8ntk7wk5rt.us-west-2.rds.amazonaws.com -u dbmuser -p --add-drop-database -r /data/backups/20220329-counter-prod.sql
-    $ mysql -u dbmuser -p < /data/backups/20220329-counter-prod.sql
+```sh
+mysqldump --databases counter5 -h cudbcluster.cluster-cn8ntk7wk5rt.us-west-2.rds.amazonaws.com -u dbmuser -p --add-drop-database -r /data/backups/20220329-counter-prod.sql
+mysql -u dbmuser -p < /data/backups/20220329-counter-prod.sql
+```
 
 When prompted, enter the password for dbmuser (available in KeePass). Be patient as the dump and load can
 take a bit of time depending on the size of the production database. While the dump is fairly quick (~30-45s),
@@ -90,11 +103,14 @@ NOTE: Use the current date-time stamp as the file prefix.
 
 To improve loading performance, drop all indexes:
 
-    $ mysql counter5 -u dbmuser -p < sql/drop-indexes.sql
+```sh
+$ mysql counter5 -u dbmuser -p < sql/drop-indexes.sql
+```
 
 At this point, the staging database is ready for loading the new files.
 
 ### Run Loading Script
+
 The loading process is a multistep process:
 
 * Read the title and usage data in the source Excel spreadsheet.
@@ -108,7 +124,9 @@ This is an iterative process that is performed for every spreadsheet to the load
 The entire sequence of steps as outlined above are initiated and executed from a single "controller"
 file (loader.py). The process is started by entering the following command:
 
-    $ python3 loader.py <report directory> <year>
+```sh
+python3 loader.py <report directory> <year>
+```
 
 The report directory parameter is the location of the prepared Excel files. The year parameter is
 the 4-digit year that corresponds to the usage data, e.g., for a report containing usage data for
@@ -117,31 +135,43 @@ the 4-digit year that corresponds to the usage data, e.g., for a report containi
 Refer to the source code comments for further details.
 
 ### Restore Database to Test/Production
+
 Once all spreadsheets have been loaded, the database on the staging server can be restored to
 the test RDS cluster for acceptance testing:
 
-    $ mysqldump --databases counter5 -u dbmuser -p --add-drop-database -r /data/backups/20220329-counter-staging.sql
-    $ mysql -h test-dbcluster.cluster-cn8ntk7wk5rt.us-west-2.rds.amazonaws.com -u dbmuser -p < /data/backups/20220329-counter-staging.sql
+```sh
+mysqldump --databases counter5 -u dbmuser -p --add-drop-database -r /data/backups/20220329-counter-staging.sql
+mysql -h test-dbcluster.cluster-cn8ntk7wk5rt.us-west-2.rds.amazonaws.com -u dbmuser -p < /data/backups/20220329-counter-staging.sql
+```
 
 Next recreate the indexes in the test environment:
 
-    $ mysql counter5 -h test-dbcluster.cluster-cn8ntk7wk5rt.us-west-2.rds.amazonaws.com -u dbmuser -p < sql/create-indexes.sql
+```sh
+mysql counter5 -h test-dbcluster.cluster-cn8ntk7wk5rt.us-west-2.rds.amazonaws.com -u dbmuser -p < sql/create-indexes.sql
+```
 
 With the test database restored, the designated product team can begin acceptance testing. For this step,
 it is recommended that a handful of spreadsheets be compared to the data returned from the UI. On
 completion of testing, the updated database can be restored to the production environment:
 
-    $ mysql -h cudbcluster.cluster-cn8ntk7wk5rt.us-west-2.rds.amazonaws.com -u dbmuser -p < /data/backups/20220329-counter-staging.sql
-    $ mysql -h cudbcluster.cluster-cn8ntk7wk5rt.us-west-2.rds.amazonaws.com -u dbmuser -p < sql/create-indexes.sql
+```sh
+mysql -h cudbcluster.cluster-cn8ntk7wk5rt.us-west-2.rds.amazonaws.com -u dbmuser -p < /data/backups/20220329-counter-staging.sql
+mysql -h cudbcluster.cluster-cn8ntk7wk5rt.us-west-2.rds.amazonaws.com -u dbmuser -p < sql/create-indexes.sql
+```
 
 ### Archive Reports to AWS S3
+
 The last step in the process is to archive all of the processed spreadsheets by moving them to AWS S3.
 Do this by running the following command:
 
-    $ aws s3 mv /data/counter/ s3://cubl-backup/counter-reports/ --recursive --storage-class ONEZONE_IA
+```sh
+aws s3 mv /data/counter/ s3://cubl-backup/counter-reports/ --recursive --storage-class ONEZONE_IA
+```
 
 ## Other Considerations
+
 ### Running Loading Script in Screen Mode
+
 It is recommended that the loading script be run in a Linux `screen` session. Using this approach
 will enable the script to run in the background while disconnected from the remote host.
 
@@ -152,10 +182,10 @@ in the screen session will continue to run after you detach from the session.
 
 To resume the screen session, enter `screen -r` at the command prompt.
 
-Further information about the Linux screen command is available at
-[How To Use Linux Screen](https://linuxize.com/post/how-to-use-linux-screen/).
+Further information about the Linux screen command is available at [How To Use Linux Screen](https://linuxize.com/post/how-to-use-linux-screen/).
 
 ### When Errors Occur During Loading
+
 The loading process will raise an error (and log it) if the source spreadsheet cannot be loaded. Errors
 typically occur when the spreadsheet does not adhere to the COUNTER specification. For example, sometimes
 there will be a blank row at the top of the spreadsheet. Other formatting issues may also cause errors
@@ -181,10 +211,13 @@ examined for any obvious formatting errors and, if found, these can be rectified
 script rerun. If errors persist, let the Product Owner know.
 
 ### Updating the platform_ref Table
+
 If a new platform needs to be added to the `platform_ref` table, enter the following command in
 the MySQL environment:
 
-    mysql> INSERT INTO platform_ref VALUES (id, name, preferred_name, has_faq);
+```
+mysql> INSERT INTO platform_ref VALUES (id, name, preferred_name, has_faq);
+```
 
 where
 

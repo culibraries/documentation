@@ -2,7 +2,7 @@
 
 This document describes the individual Cronjob Tasks associated with our current kubernetes infrastructure. The backup  cronjobs to S3 bucket(cubl-backup) have a 30 day lifecycle rule. [Github Repository](https://github.com/culibraries/k8s-cronjob-tasks)
 
-## Active Tasks 
+## Active Tasks
 
 1. [alb-targetgroup-update](https://github.com/culibraries/k8s-cronjob-tasks/tree/main/alb-targetgroup-update)
     This task updates the instances within the target group. The cta-test cluster is 100% spot instances, and the task updates the target group with new spot instances. When cta-prod is moved to AWS EKS, the cluster could be 100% spot instances. This task would need modification to include the cta-prod cluster.
