@@ -21,7 +21,7 @@ CU Scholar utilizes the CU Library [infrastructure](/pages/infrastructure).
 
 ### Metadata
 
-CU Scholar metadata is stored within the Flexibile Extensible Digital Object Repository Architecture(fedora). The metadata utilizes the Mysql AWS RDS database. Fedora logs all changes and stores metadata changes within the database. [Backup Policy](/pages/backup) (CTS 4)
+CU Scholar metadata is stored within the Flexible Extensible Digital Object Repository Architecture(fedora). The metadata utilizes the Mysql AWS RDS database. Fedora logs all changes and stores metadata changes within the database. [Backup Policy](/pages/backup) (CTS 4)
 
 ### Data Files
 
@@ -31,5 +31,3 @@ CU Scholar data files are stored within the Flexibile Extensible Digital Object 
 
 1. All files uploaded undergoes virus scan.(CTS 4)
 2. Fixity checksums are performed at a regular interval (Quarterly). (CTS 3)
-
-

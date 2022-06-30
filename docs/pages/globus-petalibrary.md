@@ -1,4 +1,5 @@
-# PetaLibrary S3 Glacier 
+# PetaLibrary S3 Glacier
+
 Documentation for the Globus Online transfer of Petalibrary data to S3 Bucket.
 
 ## Configuration
@@ -33,16 +34,19 @@ Documentation for the Globus Online transfer of Petalibrary data to S3 Bucket.
 1. If trial successful add new globus endpoints
 1. The CU Scholar archive is currently being manually moved. This would cut out the middle step and provide direct access from S3 to PetaLibrary.
 1. Transfer S3 bucket(cubl-ir-fcrepo) ==> /pl/archive/libdigicoll/dataSets/cu_scholar/cubl-ir-fcrepo
-1. The above actions will allow for 3 copies with one copy in a different geolocation. 
+1. The above actions will allow for 3 copies with one copy in a different geolocation.
 1. This is part of the Core Trust Seal actions needed for CU Scholar.
 1. AWS Lambda to move IR files on demand
 
 ## Manual backup to Petalibrary
+
 1. Sync S3 Bucket to local drive
-```sh
-cd { data download directory }
-aws s3 sync s3://cubl-ir-fcrepo .
-```
+
+    ```sh
+    cd { data download directory }
+    aws s3 sync s3://cubl-ir-fcrepo .
+    ```
+
 1. Install Globus Connect Personal
 1. Create Endpoint on System
 1. Use the Web Interface to start a transfer from Laptop Endpoint to Petalibrary

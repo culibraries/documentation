@@ -14,27 +14,32 @@ Cybercomm API is based from [open-source project](https://cybercom-docs.readthed
 
 ## Configuration
 
-Refer to [cybercommons](https://cybercom-docs.readthedocs.io/en/latest/pages/configuration.html#configuration-files)  for system configuration documentation. This documentation assumes you are not working in kubernetes. 
+Refer to [cybercommons](https://cybercom-docs.readthedocs.io/en/latest/pages/configuration.html#configuration-files) for system configuration documentation. This documentation assumes you are not working in kubernetes. 
 
 Changes with Kubernetes:
+
 1. Secret(cybercom) contains all secrets
 1. Encrypted communication through self signed certificates stored in Secret(cybercom)
 1. Within container certs are mounted from secret and located `/ssl` directory.
 1. Certificates are valid
+
     ```sh
     cat /ssl/server/mongodb.pem | openssl x509 -noout -enddate
     notAfter=Sep 10 19:12:02 2029 GMT
     ```
+
 1. Federated SSO certificates are stored in Secret(cybercom)
 1. [SAML Service Provider](https://github.com/culibraries/django-saml2-pro-auth/blob/master/README.md)
 
-## Catalog and Data Store 
+## Catalog and Data Store
+
 The Catalog and Data Store are using MongoDB for the backend. The API leverages the pymongo query language, including aggregation and distinct queries. [Documentation](https://cybercom-docs.readthedocs.io/en/latest/pages/rest_api.html)
 
 ## Applications API SSO Authentication
 
 1. Authentication configuration within Nginx conf file
 1. LibBudget Example
+
     ```sh
     server {
         listen 80;
@@ -104,6 +109,7 @@ The Catalog and Data Store are using MongoDB for the backend. The API leverages 
 1. Celery Queue build missing requirement
 
 ## Applications
+
 |Application| Auth | Django Apps| Celery | Mongo|
 |-----------|-------|-------|---------|----|
 |[LibBudget](https://libapps.colorado.edu/libbudget/)| Yes | |[emailCULibq](https://github.com/culibraries/emailCULibq)||
@@ -120,9 +126,7 @@ The Catalog and Data Store are using MongoDB for the backend. The API leverages 
 |Email Service|Yes||[emailCULibq](https://github.com/culibraries/emailCULibq)||
 |Thumbnail Creation|Yes||[thumbnailq](https://github.com/culibraries/thumbnailq)||
 
-
 ## Inactive Applications
 
-1. Infomotion Survey
+1. Information Survey
 1. Gate Count Celery Queue
-

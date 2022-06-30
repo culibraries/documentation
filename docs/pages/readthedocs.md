@@ -11,7 +11,8 @@ ReadtheDocs is CU Boulder Libraries Core Tech & Apps approved method for documen
 
 ## Installation
 
-1. Clone Repository 
+1. Clone Repository
+
     ```sh
     git clone git@github.com:culibraries/documentation.git
 
@@ -19,37 +20,42 @@ ReadtheDocs is CU Boulder Libraries Core Tech & Apps approved method for documen
 
     git clone https://github.com/culibraries/documentation.git
     ```
+
 1. Create Virtual Environment
 
     NOTE: Win variations assume cmd.exe shell
-    
+
     ```sh
     cd documentation
     python3 -m venv venv (Win: python -m venv <dir>)
     . venv/bin/activate (Win: venv\Scripts\activate.bat)
     pip install -r requirements.txt
     ```
+
 1. Create HTML
+
     ```sh
     cd docs
     make html
     ```
+
 1. New Terminal - Web server
+
     ```sh
     . venv/bin/activate
     cd docs/_build/html
     python -m http.server
     Serving HTTP on :: port 8000 (http://[::]:8000/) ...
     ```
+
 1. Open Browser [http://localhost:8000](http://localhost:8000)
 
 ## Add new documentation
 
-1. git checkout -b new_docs
+1. `git checkout -b new_docs`
 1. Edit/Add documentation (Markdown)
-1. make html 
+1. `make html`
 1. add new pages to toctree (index.rst)
-
 
 ## Pull Request to main branch
 

@@ -5,7 +5,7 @@ Docs for development process.
 
 Contact: Andrew Johnson
 
-## Local Developement
+## Local Development
 
 The Samvera community has good documentation regarding local development and dependencies.
 
@@ -16,6 +16,7 @@ The Samvera community has good documentation regarding local development and dep
 [Development Documentation](https://samvera.github.io/)
 
 ### Configuration
+
 * Build local Gems
 
     ```sh
@@ -27,11 +28,13 @@ The Samvera community has good documentation regarding local development and dep
     ```sh
     bin/rails hydra:server
     ```
+
 * Create local sqlite3 DB
 
     ```sh
     bin/rails db:migrate RAILS_ENV=development
     ```
+
 * Create CU Scholar Admin User and Admin Sets
 
     ```sh
@@ -63,7 +66,6 @@ Admin user can update roles.
 
 * Solution: Use editor, which shows encoding. I use Microsoft Code and copy each item to the editor and view encoding. Once found, update the form item. The Abstract field is usually the culprit.
 
-
 ## SOLR (Primary Concern)
 
 The Solr instance needs to be even distributed cores for each node. Our current production cluster has two Cores with three nodes. I believe this is what is causing our problems. I have worked on the test cluster with multiple configurations. The original design was similar to ElastiSearch, which handles the multiple core configuration. I assumed that Solr Cloud handles this as well; I was wrong. The last configuration has only two replicas deployed with two cores on each node. It appears to work. I have not deployed to production.
@@ -71,18 +73,25 @@ The Solr instance needs to be even distributed cores for each node. Our current 
 ### Example Configuration Changes
 
 1. Create Backup of current collection
+
     ```sh
     curl "http://solr-svc:8983/solr/admin/collections?action=BACKUP&name=2022-03-14-testSolrBackup&collection=hydra-prod5&location=/backup/test"
     ```
+
 2. Delete Collection
+
     ```sh
     curl "http://solr-svc:8983/solr/admin/collections?action=DELETE&name=hydra-prod5"
     ```
+
 3. Perform configuration action
+
     ```sh
     kubectl -n scholar scale statefulsets solr --replicas=2
     ```
+
 4. Restore from backup
+
     ```sh
     curl "http://solr-svc:8983/solr/admin/collections?action=RESTORE&name=2022-03-14-testSolrBackup&collection=hydra-prod5&location=/backup/test"
     ```
