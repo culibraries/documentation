@@ -1,8 +1,19 @@
-# PetaLibrary S3 Glacier
+# PetaLibrary S3 Backups 
 
-Documentation for the Globus Online transfer of Petalibrary data to S3 Bucket.
+## Scholar Backup
+Scholar's data files, stored in AWS S3 bucket object store, are copied to PetaLibrary (*/pl/archive/libdigicoll-2/dataSets/cu_scholar/cubl-ir-fcrepo/*) using rclone on a compute node.  This is setup as a nightly job script and scheduled with the Slurm job scheduler.  
 
-## Configuration
+User needs to have UC Boulder Research Computing Account with Duo two-factor authentication, along with being a member of the "dulockgrp" access group.  The group will give access to the folder "/pl/archive/libdigicoll-2" for Scholar backup.
+
+The PetaLibrary Tier provides full data checksumming.
+
+This completes the three copies backup, with one copy in a different geolocation.
+
+
+## Globus Configuration  ❗Deprecated
+**Research Computing discontinued it's trial licenses for the Globus S3 Connector.** 
+
+Documentation for the Globus Online transfer of PetaLibrary data to S3 Bucket.
 
 1. Discussion with Research Computing (Jason Armbruster) to set up Globus Online endpoint (cubl-petalibrary-archive).
 1. RC set up a globus endpoint "S3 prototype CU Boulder Libraries"
@@ -28,28 +39,3 @@ Documentation for the Globus Online transfer of Petalibrary data to S3 Bucket.
     /pl/archive/libdigicoll/libberet-bulkMove/RFS/
     (23TB)
     ```
-
-## TODO
-
-1. If trial successful add new globus endpoints
-1. The CU Scholar archive is currently being manually moved. This would cut out the middle step and provide direct access from S3 to PetaLibrary.
-1. Transfer S3 bucket(cubl-ir-fcrepo) ==> /pl/archive/libdigicoll/dataSets/cu_scholar/cubl-ir-fcrepo
-1. The above actions will allow for 3 copies with one copy in a different geolocation.
-1. This is part of the Core Trust Seal actions needed for CU Scholar.
-1. AWS Lambda to move IR files on demand
-
-## Manual backup to Petalibrary
-
-1. Sync S3 Bucket to local drive
-
-    ```sh
-    cd { data download directory }
-    aws s3 sync s3://cubl-ir-fcrepo .
-    ```
-
-1. Install Globus Connect Personal
-1. Create Endpoint on System
-1. Use the Web Interface to start a transfer from Laptop Endpoint to Petalibrary
-    * Laptop endpoint where the AWS sync happened
-    * Petalibrary Endpoint `/pl/archive/libdigicoll/dataSets/cu_scholar/`
-    * select `cubl-ir-fcrepo`
